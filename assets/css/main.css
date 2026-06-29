@@ -2614,6 +2614,29 @@ input[type=color] {
   align-items: center;
   gap: 4px;
 }
+/* Responsive header logo */
+.at-header-logo img,
+.site-logo {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  width: 140px;
+  object-fit: contain;
+}
+
+@media (max-width: 1199px) {
+  .at-header-logo img,
+  .site-logo {
+    width: 120px;
+  }
+}
+
+@media (max-width: 767px) {
+  .at-header-logo img,
+  .site-logo {
+    width: 96px;
+  }
+}
 .at-header-spacing {
   padding: 10px 0;
 }
