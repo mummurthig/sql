@@ -22448,7 +22448,7 @@ input.footer-15__form-input:focus {
 .sec-1-home-13__headline {
   font-family: var(--at-ff-heading);
   font-weight: 600;
-  font-size: clamp(28px, 4vw, 64px);
+  font-size: clamp(23px, 4vw, 47px);
   line-height: 1.125;
   letter-spacing: -0.05em;
   color: var(--at-common-white);

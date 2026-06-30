@@ -26,6 +26,25 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        /* Fix navbar height when using a taller custom logo */
+        .at-header-area.header-transparent {
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+        }
+        .at-header-logo a {
+            display: inline-flex;
+            align-items: center;
+            line-height: 0;
+        }
+        .site-logo {
+            width: 100px !important;
+            height: auto !important;
+            max-height: 50px !important;
+            object-fit: contain;
+            display: block;
+        }
+    </style>
 </head>
 
 <body class="at-magic-cursor">
@@ -105,8 +124,7 @@
                     <div class="col-xl-3 col-6">
                         <div class="at-header-logo">
                             <a href="index.html">
-                                <img data-width="30" src="assets/imgs/template/logo/favicon.svg" alt="orisa">
-                                <p class="h6 fw-700 fz-24 mb-0">Orisa</p>
+                                <img data-width="140" src="assets/imgs/logo/final%20logo%20copy.png" alt="Chennai FPV Drones" class="site-logo">
                             </a>
                         </div>
                     </div>
