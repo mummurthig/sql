@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" data-bs-theme="light">
    <!-- Mirrored from orisa-html-demo.pages.dev/index-13 by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 28 Jun 2026 19:33:40 GMT -->
    <!-- Added by HTTrack -->
@@ -9,8 +9,8 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <meta name="description" content="Premier FPV Wedding Cinematography in Chennai. Immersive, dynamic aerial footage for your special day. Custom packages for all wedding styles.">
-      <title>FPV Wedding Cinematography in Chennai | Chennai FPV Drones</title>
+      <meta name="description" content="Precision drone land surveying and aerial mapping in Chennai. We provide orthomosaic maps, 3D point clouds, DEM, and topographic surveys using RTK/PPK drones.">
+      <title>Drone Land Survey & Aerial Mapping in Chennai | Chennai FPV Drones</title>
       <!-- Favicon icon-->
       <link rel="shortcut icon" type="image/x-icon" href="assets/imgs/template/logo/favicon.svg">
       <!-- Libs CSS -->
@@ -206,9 +206,8 @@
                                                 </div>
                                                 <ul>
                                                    <li><a href="fpv-wedding-cinematography.html">FPV Wedding Cinematography</a></li>
-                                                   <li><a href="portfolio-split.html">Event Coverage</a></li>
-                                                   <li><a href="portfolio-stack.html">Aerial Photography & Videography</a></li>
-                                                   <li><a href="portfolio-curtain.html">Real Estate Media</a></li>
+                                                   <li><a href="event-coverage.html">Event Coverage</a></li>
+                                                   <li><a href="real_estate_media.html">Real Estate Media</a></li>
                                                 </ul>
                                              </div>
                                           </div>
@@ -222,8 +221,6 @@
                                                 </div>
                                                 <ul>
                                                    <li><a href="portfolio-1.html">Land Survey & Mapping</a></li>
-                                                   <li><a href="portfolio-2.html">Construction Progress Monitoring</a></li>
-                                                   <li><a href="portfolio-2.html">Mining & Quarry Survey</a></li>
                                                    <li><a href="portfolio-2.html">Industrial Inspection</a></li>
                                                    <li><a href="portfolio-2.html">Agriculture Survey</a></li>
                                                 </ul>
@@ -469,1105 +466,590 @@
             <main class="bg-neutral-0">
 
 <style>
-/* ============================
-   WEDDING PAGE - CUSTOM STYLES
-   ============================ */
+/* =========================================
+   LAND SURVEY & MAPPING — PAGE STYLES
+   ========================================= */
 :root {
-    --w-dark: #0a0a0a;
-    --w-dark2: #111111;
-    --w-dark3: #1a1a1a;
-    --w-accent: #c9a96e;
-    --w-accent2: #e8c88a;
-    --w-light: #f5f5f5;
-    --w-grey: #888888;
-    --w-border: rgba(255,255,255,0.08);
+    --sm-dark:    #06080b;
+    --sm-dark2:   #090d14;
+    --sm-dark3:   #0e1520;
+    --sm-card:    #111926;
+    --sm-accent:  #3b82f6; /* Blue for technology/precision */
+    --sm-accent2: #60a5fa;
+    --sm-border:  rgba(255,255,255,0.06);
+    --sm-border2: rgba(59,130,246,0.2);
+    --sm-text:    #d1d5db;
+    --sm-muted:   #9ca3af;
 }
 
-.wedding-page {
-    background: #0a0a0a;
-    color: #f0f0f0;
+.sm-page {
+    background: var(--sm-dark);
+    color: var(--sm-text);
     font-family: 'Inter', sans-serif;
 }
 
-/* ---- Hero ---- */
-.w-hero {
+/* ========== HERO ========== */
+.sm-hero {
+    min-height: 95vh;
+    display: grid;
     position: relative;
-    height: 100vh;
-    min-height: 700px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
     overflow: hidden;
-    padding: 40px 20px;
+    align-items: center;
+    justify-items: center;
+    padding: 120px 20px 80px;
+    background: var(--sm-dark);
 }
-.w-hero-bg {
+.sm-hero-grid-bg {
     position: absolute;
     inset: 0;
-    background: linear-gradient(160deg, #0a0a0a 0%, #1a0a00 40%, #0a0a0a 100%);
+    background-image:
+        linear-gradient(rgba(59,130,246,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
     z-index: 0;
 }
-.w-hero-bg::after {
+.sm-hero-grid-bg::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,169,110,0.12) 0%, transparent 70%);
+    background: radial-gradient(ellipse 70% 70% at 50% 50%,
+        rgba(59,130,246,0.08) 0%, transparent 70%);
 }
-.w-hero-eyebrow {
+/* Scanning laser effect */
+.sm-hero-grid-bg::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 2px;
+    background: var(--sm-accent);
+    box-shadow: 0 0 15px var(--sm-accent), 0 0 30px var(--sm-accent);
+    opacity: 0.5;
+    animation: smScan 8s linear infinite;
+    z-index: 1;
+}
+@keyframes smScan {
+    0% { top: 0; opacity: 0; }
+    10% { opacity: 0.5; }
+    90% { opacity: 0.5; }
+    100% { top: 100%; opacity: 0; }
+}
+
+.sm-hero-content {
     position: relative;
     z-index: 2;
+    text-align: center;
+    max-width: 960px;
+}
+.sm-hero-badge {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    background: rgba(201,169,110,0.12);
-    border: 1px solid rgba(201,169,110,0.3);
+    gap: 10px;
+    background: rgba(59,130,246,0.1);
+    border: 1px solid rgba(59,130,246,0.3);
     border-radius: 50px;
-    padding: 8px 22px;
+    padding: 8px 24px;
     font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 2.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--w-accent);
+    color: var(--sm-accent2);
     margin-bottom: 30px;
 }
-.w-hero-eyebrow-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--w-accent);
-    animation: blink 2s infinite;
-}
-@keyframes blink {
-    0%,100% { opacity: 1; }
-    50% { opacity: 0.3; }
-}
-.w-hero-title {
-    position: relative;
-    z-index: 2;
-    font-size: clamp(2.8rem, 6vw, 5.5rem);
-    font-weight: 700;
-    line-height: 1.05;
-    margin-bottom: 28px;
+.sm-hero-badge svg { color: var(--sm-accent); }
+.sm-hero-title {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -2px;
     color: #fff;
-    letter-spacing: -1px;
+    margin-bottom: 24px;
 }
-.w-hero-title em {
-    font-style: normal;
-    background: linear-gradient(90deg, var(--w-accent), var(--w-accent2), var(--w-accent));
-    background-size: 200%;
+.sm-hero-title span {
+    background: linear-gradient(90deg, var(--sm-accent2), var(--sm-accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shimmer 4s linear infinite;
+    background-clip: text;
 }
-@keyframes shimmer {
-    0% { background-position: 0%; }
-    100% { background-position: 200%; }
-}
-.w-hero-desc {
-    position: relative;
-    z-index: 2;
-    font-size: 1.15rem;
-    color: #aaa;
-    max-width: 620px;
-    margin: 0 auto 44px;
+.sm-hero-sub {
+    font-size: 1.1rem;
+    color: var(--sm-text);
+    max-width: 700px;
+    margin: 0 auto 40px;
     line-height: 1.7;
 }
-.w-hero-actions {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.w-btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+.sm-btn-primary {
+    display: inline-flex; align-items: center; gap: 10px;
     padding: 16px 36px;
-    background: var(--w-accent);
-    color: #000;
-    border-radius: 50px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: 2px solid var(--w-accent);
+    background: var(--sm-accent); color: #fff;
+    border-radius: 8px; font-weight: 600; font-size: 1rem;
+    text-decoration: none; transition: all 0.3s;
 }
-.w-btn-primary:hover {
-    background: var(--w-accent2);
-    border-color: var(--w-accent2);
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(201,169,110,0.35);
-    color: #000;
-}
-.w-btn-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 34px;
-    background: transparent;
+.sm-btn-primary:hover {
+    background: var(--sm-accent2);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(59,130,246,0.3);
     color: #fff;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 0.95rem;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: 2px solid rgba(255,255,255,0.25);
 }
-.w-btn-outline:hover {
-    border-color: var(--w-accent);
-    color: var(--w-accent);
-    transform: translateY(-3px);
+.sm-btn-outline {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 15px 34px;
+    background: transparent; color: #fff;
+    border-radius: 8px; font-weight: 600; font-size: 1rem;
+    text-decoration: none; transition: all 0.3s;
+    border: 1px solid var(--sm-border2);
 }
-.w-hero-stats {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    gap: 60px;
-    margin-top: 60px;
-    padding-top: 40px;
-    border-top: 1px solid var(--w-border);
-}
-.w-stat-item { text-align: center; }
-.w-stat-num {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--w-accent);
-    display: block;
-    line-height: 1;
-    margin-bottom: 6px;
-}
-.w-stat-label {
-    font-size: 0.8rem;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+.sm-btn-outline:hover { border-color: var(--sm-accent); background: rgba(59,130,246,0.05); }
+
+.sm-hero-ctas {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 60px;
 }
 
-/* ---- Section Header ---- */
-.w-section { padding: 100px 0; }
-.w-section-dark { background: var(--w-dark); }
-.w-section-dark2 { background: var(--w-dark2); }
-.w-section-dark3 { background: var(--w-dark3); }
-.w-section-header { text-align: center; margin-bottom: 70px; }
-.w-label {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--w-accent);
-    margin-bottom: 18px;
-}
-.w-label::before, .w-label::after {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 1px;
-    background: var(--w-accent);
-}
-.w-title {
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.15;
-    letter-spacing: -0.5px;
-    margin-bottom: 18px;
-}
-.w-subtitle {
-    font-size: 1.1rem;
-    color: #888;
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.7;
-}
-
-/* ---- Why FPV Section ---- */
-.w-why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2px;
-    background: var(--w-border);
-    border-radius: 24px;
-    overflow: hidden;
-}
-.w-why-item {
-    background: var(--w-dark2);
-    padding: 50px;
-    transition: background 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-.w-why-item::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 3px;
-    height: 0;
-    background: var(--w-accent);
-    transition: height 0.4s ease;
-}
-.w-why-item:hover {
-    background: #161616;
-}
-.w-why-item:hover::after {
-    height: 100%;
-}
-.w-why-num {
-    font-size: 4rem;
-    font-weight: 800;
-    color: rgba(201,169,110,0.12);
-    line-height: 1;
-    margin-bottom: 15px;
-    letter-spacing: -2px;
-}
-.w-why-title {
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 14px;
-}
-.w-why-text {
-    font-size: 1rem;
-    color: #777;
-    line-height: 1.7;
-    margin: 0;
-}
-
-/* ---- How It Works ---- */
-.w-steps {
+.sm-stats-bar {
     display: flex;
-    flex-direction: column;
-    gap: 0;
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-}
-.w-steps::before {
-    content: '';
-    position: absolute;
-    left: 28px;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: linear-gradient(to bottom, var(--w-accent), transparent);
-}
-.w-step {
-    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 40px;
-    padding: 40px 0;
-    align-items: flex-start;
+    padding: 30px 50px;
+    background: rgba(14,21,32,0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--sm-border);
+    border-radius: 20px;
 }
-.w-step-num {
-    flex-shrink: 0;
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: var(--w-dark3);
-    border: 1px solid var(--w-accent);
+.sm-stat-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--w-accent);
-    z-index: 1;
+    gap: 5px;
 }
-.w-step-content {}
-.w-step-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 10px;
+.sm-stat-val { font-size: 2rem; font-weight: 800; color: #fff; line-height: 1; }
+.sm-stat-val span { color: var(--sm-accent); }
+.sm-stat-label { font-size: 0.85rem; color: var(--sm-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+
+
+/* ========== SECTIONS ========== */
+.sm-section { padding: 100px 0; }
+.sm-section-dark  { background: var(--sm-dark); }
+.sm-section-dark2 { background: var(--sm-dark2); }
+.sm-section-dark3 { background: var(--sm-dark3); }
+
+.sm-section-header { text-align: center; margin-bottom: 60px; }
+.sm-label {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: 12px; font-weight: 700; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--sm-accent2);
+    margin-bottom: 16px;
 }
-.w-step-text {
-    font-size: 1rem;
-    color: #777;
-    line-height: 1.7;
-    margin: 0;
+.sm-title {
+    font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700;
+    color: #fff; letter-spacing: -1px; line-height: 1.2;
+    margin-bottom: 16px;
+}
+.sm-subtitle {
+    font-size: 1.05rem; color: var(--sm-muted);
+    max-width: 650px; margin: 0 auto; line-height: 1.7;
 }
 
-/* ---- Gallery Grid ---- */
-.w-gallery-grid {
+/* ========== WHAT WE DO / DELIVERABLES ========== */
+.sm-grid-3 {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: 220px;
-    gap: 16px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
 }
-.w-gallery-item {
+.sm-card {
+    background: var(--sm-card);
+    border: 1px solid var(--sm-border);
+    border-radius: 16px;
+    padding: 40px 30px;
+    transition: transform 0.3s, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+.sm-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--sm-border2);
+}
+.sm-card-icon {
+    width: 60px; height: 60px;
+    background: rgba(59,130,246,0.1);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--sm-accent2);
+    margin-bottom: 24px;
+}
+.sm-card-title {
+    font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 12px;
+}
+.sm-card-desc {
+    font-size: 0.95rem; color: var(--sm-muted); line-height: 1.6; margin-bottom: 20px;
+}
+.sm-card-list { list-style: none; padding: 0; margin: 0; }
+.sm-card-list li {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.85rem; color: var(--sm-text); margin-bottom: 8px;
+}
+.sm-card-list li svg { color: var(--sm-accent); flex-shrink: 0; }
+
+/* ========== INTERACTIVE COMPARISON ========== */
+.sm-comparison {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
+    align-items: center; background: var(--sm-card);
+    border-radius: 20px; padding: 50px; border: 1px solid var(--sm-border);
+}
+.sm-comp-text h3 { font-size: 2.2rem; font-weight: 700; color: #fff; margin-bottom: 20px; }
+.sm-comp-text p { font-size: 1.05rem; color: var(--sm-muted); line-height: 1.7; margin-bottom: 30px; }
+.sm-comp-list { display: flex; flex-direction: column; gap: 20px; }
+.sm-comp-item { display: flex; align-items: flex-start; gap: 16px; }
+.sm-comp-item-icon { width: 40px; height: 40px; background: rgba(59,130,246,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--sm-accent); flex-shrink: 0; }
+.sm-comp-item h4 { font-size: 1.1rem; color: #fff; margin: 0 0 5px; }
+.sm-comp-item p { font-size: 0.9rem; color: #aaa; margin: 0; line-height: 1.5; }
+
+.sm-comp-image {
     position: relative;
     border-radius: 16px;
     overflow: hidden;
-    background: var(--w-dark3);
-    cursor: pointer;
+    aspect-ratio: 4/3;
+    border: 1px solid var(--sm-border2);
 }
-.w-gallery-item:nth-child(1) { grid-column: span 7; grid-row: span 2; }
-.w-gallery-item:nth-child(2) { grid-column: span 5; }
-.w-gallery-item:nth-child(3) { grid-column: span 5; }
-.w-gallery-item:nth-child(4) { grid-column: span 4; }
-.w-gallery-item:nth-child(5) { grid-column: span 4; }
-.w-gallery-item:nth-child(6) { grid-column: span 4; }
+.sm-comp-image img { width: 100%; height: 100%; object-fit: cover; }
+.sm-comp-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(9,13,20,0.9));
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 24px;
+}
+.sm-comp-overlay span { color: var(--sm-accent2); font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; }
 
-.w-gallery-placeholder {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    background: linear-gradient(135deg, #1a1a1a, #111);
-    border: 1px dashed rgba(201,169,110,0.25);
-    border-radius: 16px;
-    transition: all 0.4s ease;
+/* ========== INDUSTRIES ========== */
+.sm-industry-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
 }
-.w-gallery-item:hover .w-gallery-placeholder {
-    background: linear-gradient(135deg, #1f1a10, #141006);
-    border-color: rgba(201,169,110,0.5);
+.sm-ind-box {
+    background: var(--sm-dark3);
+    border: 1px solid var(--sm-border);
+    border-radius: 12px; padding: 30px 20px; text-align: center;
+    transition: 0.3s;
 }
-.w-gallery-icon {
-    width: 54px;
-    height: 54px;
-    border-radius: 50%;
-    background: rgba(201,169,110,0.1);
-    border: 1px solid rgba(201,169,110,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--w-accent);
-}
-.w-gallery-caption {
-    font-size: 0.85rem;
-    color: #666;
-    text-align: center;
-    padding: 0 20px;
-}
-.w-gallery-caption strong { display: block; color: #999; margin-bottom: 4px; font-size: 0.9rem; }
+.sm-ind-box:hover { background: rgba(59,130,246,0.05); border-color: var(--sm-border2); }
+.sm-ind-box svg { width: 40px; height: 40px; color: var(--sm-accent); margin-bottom: 16px; }
+.sm-ind-box h4 { font-size: 1.1rem; color: #fff; margin-bottom: 8px; }
+.sm-ind-box p { font-size: 0.85rem; color: var(--sm-muted); margin: 0; line-height: 1.5; }
 
-/* ---- Pricing ---- */
-.w-pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    align-items: start;
-}
-.w-pricing-card {
-    background: var(--w-dark3);
-    border: 1px solid var(--w-border);
-    border-radius: 24px;
-    padding: 50px 40px;
-    position: relative;
-    transition: transform 0.35s cubic-bezier(.175,.885,.32,1.275), box-shadow 0.35s ease;
-}
-.w-pricing-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
-}
-.w-pricing-card.featured {
-    background: linear-gradient(145deg, #1d1506, #151005);
-    border-color: var(--w-accent);
-    border-width: 2px;
-}
-.w-pricing-badge {
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--w-accent);
-    color: #000;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 6px 20px;
-    border-radius: 50px;
-    white-space: nowrap;
-}
-.w-pricing-tier {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--w-accent);
-    margin-bottom: 18px;
-    display: block;
-}
-.w-pricing-name {
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 8px;
-}
-.w-pricing-price {
-    font-size: 3.2rem;
-    font-weight: 800;
-    color: #fff;
-    line-height: 1;
-    margin-bottom: 6px;
-}
-.w-pricing-price span {
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: #777;
-    vertical-align: middle;
-}
-.w-pricing-desc {
-    font-size: 0.95rem;
-    color: #666;
-    margin-bottom: 35px;
-    line-height: 1.6;
-}
-.w-pricing-divider {
-    height: 1px;
-    background: var(--w-border);
-    margin-bottom: 30px;
-}
-.w-pricing-features {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-}
-.w-pricing-features li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 0.95rem;
-    color: #bbb;
-    line-height: 1.5;
-}
-.w-pricing-features li svg {
-    flex-shrink: 0;
-    margin-top: 2px;
-    color: var(--w-accent);
-}
-.w-pricing-features li.disabled {
-    color: #444;
-}
-.w-pricing-features li.disabled svg {
-    color: #333;
-}
 
-/* ---- Testimonials ---- */
-.w-testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+/* ========== PROCESS ========== */
+.sm-process-wrap { display: flex; justify-content: space-between; position: relative; }
+.sm-process-wrap::before {
+    content: ''; position: absolute; top: 40px; left: 5%; right: 5%; height: 2px;
+    background: var(--sm-border); z-index: 0;
 }
-.w-testimonial {
-    background: var(--w-dark3);
-    border: 1px solid var(--w-border);
-    border-radius: 20px;
-    padding: 38px;
-    position: relative;
+.sm-process-step { width: 18%; position: relative; z-index: 1; text-align: center; }
+.sm-process-num {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: var(--sm-dark2); border: 2px solid var(--sm-accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; font-weight: 800; color: var(--sm-accent2);
+    margin: 0 auto 20px; box-shadow: 0 0 15px rgba(59,130,246,0.2);
 }
-.w-testimonial-quote {
-    font-size: 3rem;
-    color: var(--w-accent);
-    line-height: 0.5;
-    margin-bottom: 20px;
-    font-family: Georgia, serif;
-}
-.w-testimonial-text {
-    font-size: 1rem;
-    color: #aaa;
-    line-height: 1.7;
-    margin-bottom: 28px;
-}
-.w-testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-}
-.w-testimonial-avatar {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--w-accent), #5a3d10);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #000;
-    flex-shrink: 0;
-}
-.w-testimonial-name {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #fff;
-    display: block;
-    margin-bottom: 2px;
-}
-.w-testimonial-event {
-    font-size: 0.8rem;
-    color: #666;
-}
-.w-testimonial-stars { color: var(--w-accent); font-size: 0.85rem; margin-bottom: 4px; }
+.sm-process-step h4 { font-size: 1.05rem; color: #fff; margin-bottom: 10px; }
+.sm-process-step p { font-size: 0.85rem; color: var(--sm-muted); line-height: 1.5; margin: 0; }
 
-/* ---- FAQ ---- */
-.w-faq-list {
-    max-width: 820px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    background: var(--w-border);
-    border-radius: 20px;
-    overflow: hidden;
+/* ========== PRICING ========== */
+.sm-pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; align-items: start; }
+.sm-price-card {
+    background: var(--sm-card); border: 1px solid var(--sm-border);
+    border-radius: 20px; padding: 40px; position: relative; transition: 0.3s;
 }
-.w-faq-item {
-    background: var(--w-dark3);
+.sm-price-card:hover { border-color: var(--sm-border2); box-shadow: 0 20px 40px rgba(0,0,0,0.5); transform: translateY(-5px); }
+.sm-price-card.featured {
+    border-color: var(--sm-accent);
+    background: linear-gradient(180deg, var(--sm-dark3), var(--sm-dark2));
 }
-.w-faq-q {
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 28px 36px;
-    color: #fff;
-    font-size: 1.05rem;
-    font-weight: 600;
-    text-align: left;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    transition: background 0.3s;
-}
-.w-faq-q:hover { background: #1f1f1f; }
-.w-faq-q svg { flex-shrink: 0; color: var(--w-accent); transition: transform 0.3s; }
-.w-faq-q.open svg { transform: rotate(45deg); }
-.w-faq-a {
-    display: none;
-    padding: 0 36px 28px;
-    font-size: 0.98rem;
-    color: #888;
-    line-height: 1.7;
-}
-.w-faq-a.open { display: block; }
+.sm-price-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--sm-accent); color: #fff; font-size: 12px; font-weight: 700; padding: 6px 20px; border-radius: 50px; letter-spacing: 1px; text-transform: uppercase; white-space: nowrap;}
+.sm-price-name { font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+.sm-price-amount { font-size: 2.8rem; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 10px; }
+.sm-price-amount span { font-size: 1rem; font-weight: 500; color: var(--sm-muted); }
+.sm-price-desc { font-size: 0.9rem; color: var(--sm-muted); margin-bottom: 30px; line-height: 1.6; }
+.sm-price-features { list-style: none; padding: 0; margin: 0 0 30px; display: flex; flex-direction: column; gap: 12px; }
+.sm-price-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: var(--sm-text); line-height: 1.5; }
+.sm-price-features li svg { color: var(--sm-accent); flex-shrink: 0; margin-top: 2px; }
+.sm-price-cta { display: block; text-align: center; padding: 14px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: 0.3s; }
+.sm-price-cta.primary { background: var(--sm-accent); color: #fff; }
+.sm-price-cta.primary:hover { background: var(--sm-accent2); }
+.sm-price-cta.outline { border: 1px solid var(--sm-border2); color: #fff; }
+.sm-price-cta.outline:hover { border-color: var(--sm-accent); background: rgba(59,130,246,0.1); }
 
-/* ---- CTA ---- */
-.w-final-cta {
-    background: linear-gradient(135deg, var(--w-dark2), var(--w-dark3));
-    border: 1px solid var(--w-border);
-    border-radius: 30px;
-    padding: 90px 60px;
-    text-align: center;
-    margin: 0 40px 80px;
-    position: relative;
-    overflow: hidden;
-}
-.w-final-cta::before {
-    content: '';
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(201,169,110,0.1), transparent 70%);
-    border-radius: 50%;
-}
-.w-final-cta::after {
-    content: '';
-    position: absolute;
-    bottom: -80px; left: -80px;
-    width: 300px; height: 300px;
-    background: radial-gradient(circle, rgba(201,169,110,0.06), transparent 70%);
-    border-radius: 50%;
-}
-.w-final-cta-title {
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 18px;
-    position: relative;
-    z-index: 1;
-}
-.w-final-cta-desc {
-    font-size: 1.1rem;
-    color: #888;
-    margin-bottom: 40px;
-    max-width: 550px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    z-index: 1;
-    line-height: 1.7;
-}
-.w-final-cta .w-hero-actions { position: relative; z-index: 1; }
 
-/* ---- Responsive ---- */
-@media (max-width: 991px) {
-    .w-why-grid { grid-template-columns: 1fr; }
-    .w-pricing-grid { grid-template-columns: 1fr; }
-    .w-testimonials-grid { grid-template-columns: 1fr; }
-    .w-gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-auto-rows: 200px;
-    }
-    .w-gallery-item { grid-column: span 1 !important; grid-row: span 1 !important; }
-    .w-hero-stats { gap: 30px; flex-wrap: wrap; justify-content: center; }
-    .w-final-cta { margin: 0 16px 60px; padding: 60px 24px; }
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+    .sm-grid-3 { grid-template-columns: 1fr 1fr; }
+    .sm-pricing-grid { grid-template-columns: 1fr; }
+    .sm-comparison { grid-template-columns: 1fr; }
+    .sm-industry-grid { grid-template-columns: 1fr 1fr; }
 }
-@media (max-width: 600px) {
-    .w-gallery-grid { grid-template-columns: 1fr; }
-    .w-section { padding: 70px 0; }
-    .w-pricing-card { padding: 40px 28px; }
-    .w-faq-q { padding: 22px 20px; }
-    .w-faq-a { padding: 0 20px 22px; }
+@media (max-width: 768px) {
+    .sm-grid-3 { grid-template-columns: 1fr; }
+    .sm-stats-bar { gap: 20px; padding: 20px; flex-direction: column; text-align: center; }
+    .sm-hero { padding-top: 100px; padding-bottom: 50px; }
+    .sm-hero-title { font-size: 2.2rem; }
+    .sm-process-wrap { flex-direction: column; gap: 40px; }
+    .sm-process-wrap::before { display: none; }
+    .sm-process-step { width: 100%; display: flex; flex-direction: column; align-items: center; }
 }
 </style>
 
-<div class="wedding-page">
+<div class="sm-page">
 
-<!-- ======================== HERO ======================== -->
-<section class="w-hero">
-    <div class="w-hero-bg"></div>
-    <div class="w-hero-eyebrow">
-        <span class="w-hero-eyebrow-dot"></span>
-        Premium FPV Wedding Cinematography
-    </div>
-    <h1 class="w-hero-title">Your Love Story,<br><em>Told From The Sky</em></h1>
-    <p class="w-hero-desc">Experience immersive, cinematic wedding coverage you cannot get anywhere else. Our FPV drones dance through your venue, capturing every emotion in one breathtaking, unbroken take.</p>
-    <div class="w-hero-actions">
-        <a href="contact-3.html" class="w-btn-primary">
-            Book a Consultation
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-        <a href="#showreel" class="w-btn-outline">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-            Watch Showreel
-        </a>
-    </div>
-    <div class="w-hero-stats">
-        <div class="w-stat-item">
-            <span class="w-stat-num">150+</span>
-            <span class="w-stat-label">Weddings Covered</span>
+<!-- ========== HERO ========== -->
+<section class="sm-hero">
+    <div class="sm-hero-grid-bg"></div>
+    <div class="sm-hero-content">
+        <div class="sm-hero-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            Advanced Drone Mapping Solutions
         </div>
-        <div class="w-stat-item">
-            <span class="w-stat-num">4K</span>
-            <span class="w-stat-label">RAW Video Quality</span>
+        <h1 class="sm-hero-title">Survey-Grade Accuracy.<br><span>Acquired Faster.</span></h1>
+        <p class="sm-hero-sub">Transforming land surveying, construction, and mining in Chennai with RTK/PPK enabled drones. We deliver high-precision 2D Orthomosaics, 3D Point Clouds, and Digital Elevation Models safely and efficiently.</p>
+        <div class="sm-hero-ctas">
+            <a href="contact-3.html" class="sm-btn-primary">
+                Request a Survey Quote
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
         </div>
-        <div class="w-stat-item">
-            <span class="w-stat-num">100%</span>
-            <span class="w-stat-label">Client Satisfaction</span>
-        </div>
-        <div class="w-stat-item">
-            <span class="w-stat-num">6+</span>
-            <span class="w-stat-label">Years Experience</span>
+        
+        <div class="sm-stats-bar">
+            <div class="sm-stat-item"><div class="sm-stat-val"><span><</span> 3cm</div><div class="sm-stat-label">Absolute Accuracy</div></div>
+            <div class="sm-stat-item"><div class="sm-stat-val">500+</div><div class="sm-stat-label">Acres Mapped / Day</div></div>
+            <div class="sm-stat-item"><div class="sm-stat-val">5x</div><div class="sm-stat-label">Faster Than Traditional</div></div>
+            <div class="sm-stat-item"><div class="sm-stat-val">100%</div><div class="sm-stat-label">DGCA Compliant</div></div>
         </div>
     </div>
 </section>
 
-<!-- ======================== WHY FPV ======================== -->
-<section class="w-section w-section-dark2">
+<!-- ========== WHAT WE DO ========== -->
+<section class="sm-section sm-section-dark2" id="services">
     <div class="container">
-        <div class="w-section-header">
-            <div class="w-label">Why Choose FPV</div>
-            <h2 class="w-title">Not Just a Drone. A Flying <em style="font-style: italic; color: var(--w-accent);">Cinema Camera.</em></h2>
-            <p class="w-subtitle">Traditional drones hover. Our FPV drones tell stories—weaving through your venue with cinematic grace, capturing moments that standard cameras simply cannot reach.</p>
+        <div class="sm-section-header">
+            <div class="sm-label">Deliverables</div>
+            <h2 class="sm-title">Actionable Spatial Data</h2>
+            <p class="sm-subtitle">We don't just capture images; we generate highly accurate, measurable, and georeferenced datasets tailored for CAD and GIS software.</p>
         </div>
-        <div class="w-why-grid">
-            <div class="w-why-item">
-                <div class="w-why-num">01</div>
-                <div class="w-why-title">Seamless Indoor-to-Outdoor Transitions</div>
-                <p class="w-why-text">Glide effortlessly from your lush outdoor garden through the grand entrance into the banquet hall—all in one continuous, stunning take. No cuts. No edits. Pure cinematic magic.</p>
-            </div>
-            <div class="w-why-item">
-                <div class="w-why-num">02</div>
-                <div class="w-why-title">Energy That Matches Your Celebration</div>
-                <p class="w-why-text">From the high-energy Baraat to the emotional first dance—our drones move with you, not just above you. Expect dynamic, ground-level tracking shots no standard drone can achieve.</p>
-            </div>
-            <div class="w-why-item">
-                <div class="w-why-num">03</div>
-                <div class="w-why-title">100% Safe for Indoor & Guest Proximity</div>
-                <p class="w-why-text">Our micro Cinewhoop drones feature fully enclosed propeller guards, allowing safe flight within inches of your guests, decor, and precious moments—with zero compromise on safety.</p>
-            </div>
-            <div class="w-why-item">
-                <div class="w-why-num">04</div>
-                <div class="w-why-title">Cinema-Grade 4K RAW Footage</div>
-                <p class="w-why-text">Every flight is recorded in stunning 4K RAW. Combined with professional gyro-data stabilization in post-production, each frame is crisp, smooth, and ready for any screen size.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ======================== HOW IT WORKS ======================== -->
-<section class="w-section w-section-dark">
-    <div class="container">
-        <div class="w-section-header">
-            <div class="w-label">The Process</div>
-            <h2 class="w-title">How We Bring Your Vision to Life</h2>
-            <p class="w-subtitle">From the initial consultation to the final film delivery, every step is crafted to ensure a seamless, stress-free experience on your special day.</p>
-        </div>
-        <div class="w-steps">
-            <div class="w-step">
-                <div class="w-step-num">01</div>
-                <div class="w-step-content">
-                    <div class="w-step-title">Discovery Consultation</div>
-                    <p class="w-step-text">We begin with a detailed conversation about your wedding style, venue, timeline, and the key moments you want captured. We scout your venue virtually and prepare a customized shot list tailored to your love story.</p>
+        <div class="sm-grid-3">
+            <!-- Card 1 -->
+            <div class="sm-card">
+                <div class="sm-card-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
                 </div>
-            </div>
-            <div class="w-step">
-                <div class="w-step-num">02</div>
-                <div class="w-step-content">
-                    <div class="w-step-title">Pre-Event Site Reconnaissance</div>
-                    <p class="w-step-text">Our pilots visit the venue in advance to map flight corridors, identify ideal camera angles, check for interference, and coordinate with venue management to ensure we are fully ready on your big day.</p>
-                </div>
-            </div>
-            <div class="w-step">
-                <div class="w-step-num">03</div>
-                <div class="w-step-content">
-                    <div class="w-step-title">Day-of Cinematic Coverage</div>
-                    <p class="w-step-text">Our certified pilot and cinematographer team arrives early to set up. We operate silently and unobtrusively throughout the day—capturing your Mehendi, Sangeet, Baraat, ceremony, and reception.</p>
-                </div>
-            </div>
-            <div class="w-step">
-                <div class="w-step-num">04</div>
-                <div class="w-step-content">
-                    <div class="w-step-title">Professional Post-Production</div>
-                    <p class="w-step-text">Our editing team applies color grading, gyro stabilization, and cinematic sound design to transform raw footage into a breathtaking film. Turnaround is typically 3–5 weeks after your event.</p>
-                </div>
-            </div>
-            <div class="w-step">
-                <div class="w-step-num">05</div>
-                <div class="w-step-content">
-                    <div class="w-step-title">Delivery & Archiving</div>
-                    <p class="w-step-text">Receive your final film via private download link in 4K resolution. We also provide a highlight reel optimized for Instagram/YouTube. All raw footage is archived securely for 6 months.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-<!-- ======================== GALLERY ======================== -->
-<section class="w-section w-section-dark2" id="gallery">
-    <div class="container">
-        <div class="w-section-header">
-            <div class="w-label">Sample Work</div>
-            <h2 class="w-title">Frames From Real Weddings</h2>
-            <p class="w-subtitle">Every wedding is unique. Here is a glimpse of what our FPV lenses capture on your most special day.</p>
-        </div>
-        <div class="w-gallery-grid">
-            <div class="w-gallery-item">
-                <img src="assets/imgs/pages/home-13/wedding/Aerial_wedding_estate_sunset_202607031034.jpeg" alt="Aerial Wedding Estate at Sunset" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:16px;">
-            </div>
-            <div class="w-gallery-item">
-                <img src="assets/imgs/pages/home-13/wedding/Groom_on_horse_Baraat_procession_202607031034.jpeg" alt="Groom on Horse Baraat Procession" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:16px;">
-            </div>
-            <div class="w-gallery-item">
-                <img src="assets/imgs/pages/home-13/wedding/Couple_standing_in_vineyard_202607031034.jpeg" alt="Couple Standing in Vineyard" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:16px;">
-            </div>
-            <div class="w-gallery-item">
-                <img src="assets/imgs/pages/home-13/wedding/Drone_fly-through_luxury_palace_.jpeg" alt="Drone Fly-through Luxury Palace" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:16px;">
-            </div>
-            <div class="w-gallery-item">
-                <img src="assets/imgs/pages/home-13/wedding/Crowded_dance_floor_at_night_202607031034.jpeg" alt="Crowded Dance Floor at Night" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:16px;">
-            </div>
-            <div class="w-gallery-item">
-                <img src="assets/imgs/pages/home-13/wedding/Aerial_wedding_estate_sunset_202607031034.jpeg" alt="Aerial Wedding Sunset" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:16px;">
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-<!-- ======================== PRICING ======================== -->
-<section class="w-section w-section-dark2" id="pricing">
-    <div class="container">
-        <div class="w-section-header">
-            <div class="w-label">Packages & Pricing</div>
-            <h2 class="w-title">Transparent Pricing, No Surprises</h2>
-            <p class="w-subtitle">Choose a package built for your wedding scale. All packages include a certified FPV pilot, professional equipment, and post-production editing.</p>
-        </div>
-        <div class="w-pricing-grid">
-
-            <!-- Essential -->
-            <div class="w-pricing-card">
-                <span class="w-pricing-tier">Starter</span>
-                <div class="w-pricing-name">Essential</div>
-                <div class="w-pricing-price">₹24,999 <span>/ event</span></div>
-                <p class="w-pricing-desc">Perfect for intimate ceremonies with a focused set of highlights.</p>
-                <div class="w-pricing-divider"></div>
-                <ul class="w-pricing-features">
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Up to 4 hours of coverage
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        1 FPV Cinewhoop drone
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        4K footage, basic color grade
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        3–5 min highlight reel
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Private download link
-                    </li>
-                    <li class="disabled">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                        Full ceremony film
-                    </li>
-                    <li class="disabled">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                        Social media reels
-                    </li>
-                    <li class="disabled">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-                        Raw footage archive
-                    </li>
+                <h3 class="sm-card-title">2D Orthomosaic Maps</h3>
+                <p class="sm-card-desc">High-resolution, geometrically corrected aerial maps of large areas. Perfect for site planning, boundary mapping, and layout designing.</p>
+                <ul class="sm-card-list">
+                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Measure true distances & areas</li>
+                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> High GSD (down to 1cm/px)</li>
+                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> GeoTIFF format delivery</li>
                 </ul>
-                <a href="contact-3.html" class="w-btn-outline" style="width: 100%; justify-content: center; border-color: rgba(255,255,255,0.15);">Enquire Now</a>
             </div>
-
-            <!-- Premium (Featured) -->
-            <div class="w-pricing-card featured">
-                <div class="w-pricing-badge">Most Popular</div>
-                <span class="w-pricing-tier">Best Value</span>
-                <div class="w-pricing-name">Premium</div>
-                <div class="w-pricing-price">₹49,999 <span>/ event</span></div>
-                <p class="w-pricing-desc">Our most popular package for full-day wedding coverage with cinematic film delivery.</p>
-                <div class="w-pricing-divider"></div>
-                <ul class="w-pricing-features">
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Up to 10 hours of coverage
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        2 FPV drones (indoor + outdoor)
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        4K RAW + cinema color grade
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        5–8 min cinematic highlight reel
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Full ceremony film (20–30 min)
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        3 social media reels (Insta-ready)
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Raw footage archive (6 months)
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Pre-event venue reconnaissance
-                    </li>
+            <!-- Card 2 -->
+            <div class="sm-card">
+                <div class="sm-card-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                </div>
+                <h3 class="sm-card-title">3D Point Clouds</h3>
+                <p class="sm-card-desc">Millions of accurately plotted data points creating a dense 3D representation of your site. Essential for BIM, volumetric analysis, and urban planning.</p>
+                <ul class="sm-card-list">
+                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> High-density photogrammetry</li>
+                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Colorized RGB point clouds</li>
+                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> .LAS / .LAZ / .XYZ formats</li>
                 </ul>
-                <a href="contact-3.html" class="w-btn-primary" style="width: 100%; justify-content: center;">Book This Package</a>
             </div>
-
-            <!-- Elite -->
-            <div class="w-pricing-card">
-                <span class="w-pricing-tier">Luxury</span>
-                <div class="w-pricing-name">Elite</div>
-                <div class="w-pricing-price">₹89,999 <span>/ event</span></div>
-                <p class="w-pricing-desc">For grand weddings demanding the ultimate cinematic experience across multiple events.</p>
-                <div class="w-pricing-divider"></div>
-                <ul class="w-pricing-features">
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Multi-day coverage (3 events)
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        3 FPV drone fleet + backup
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Full team: pilot + cinematographer
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        10 min+ feature wedding film
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Unlimited social reels + teaser
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Cinematic sound design & music
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Raw footage archive (12 months)
-                    </li>
-                    <li>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                        Dedicated project coordinator
-                    </li>
+            <!-- Card 3 -->
+            <div class="sm-card">
+                <div class="sm-card-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <h3 class="sm-card-title">DEM & Contour Mapping</h3>
+                <p class="sm-card-desc">Digital Elevation Models (DSM/DTM) and highly detailed contour lines. Crucial for drainage analysis, cut/fill calculations, and topographical surveys.</p>
+                <ul class="sm-card-list">
+                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Topographic map generation</li>
+                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Volumetric stockpile analysis</li>
+                    <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> AutoCAD ready (.DXF) contours</li>
                 </ul>
-                <a href="contact-3.html" class="w-btn-outline" style="width: 100%; justify-content: center; border-color: rgba(255,255,255,0.15);">Enquire Now</a>
             </div>
         </div>
-        <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: 36px;">All prices are indicative. Final quote depends on venue, location, and specific requirements. <a href="contact-3.html" style="color: var(--w-accent); text-decoration: none;">Contact us for a custom quote.</a></p>
     </div>
 </section>
 
-<!-- ======================== TESTIMONIALS ======================== -->
-<section class="w-section w-section-dark" id="testimonials">
+<!-- ========== COMPARISON ========== -->
+<section class="sm-section sm-section-dark">
     <div class="container">
-        <div class="w-section-header">
-            <div class="w-label">Client Stories</div>
-            <h2 class="w-title">What Couples Say About Us</h2>
-            <p class="w-subtitle">Real words from real couples whose wedding days we had the privilege to capture.</p>
-        </div>
-        <div class="w-testimonials-grid">
-            <div class="w-testimonial">
-                <div class="w-testimonial-quote">"</div>
-                <div class="w-testimonial-stars">★★★★★</div>
-                <p class="w-testimonial-text">We had no idea FPV drones could do what they did at our wedding. The shot of our drone flying from outside the marriage hall all the way to the stage where we were standing literally made us cry. Absolutely cinematic.</p>
-                <div class="w-testimonial-author">
-                    <div class="w-testimonial-avatar">P</div>
-                    <div>
-                        <span class="w-testimonial-name">Priya & Karthik</span>
-                        <span class="w-testimonial-event">Grand Wedding — Chennai, 2024</span>
+        <div class="sm-comparison">
+            <div class="sm-comp-text">
+                <h3>Drone Surveying vs. Traditional Methods</h3>
+                <p>Traditional land surveying using Total Stations is slow, labor-intensive, and limits data to sparse points. Drone photogrammetry revolutionizes this process.</p>
+                <div class="sm-comp-list">
+                    <div class="sm-comp-item">
+                        <div class="sm-comp-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                        <div>
+                            <h4>Fraction of the Time</h4>
+                            <p>What takes a ground crew a week to survey, our RTK drones can map in a single day, dramatically accelerating your project timeline.</p>
+                        </div>
+                    </div>
+                    <div class="sm-comp-item">
+                        <div class="sm-comp-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+                        <div>
+                            <h4>Enhanced Safety</h4>
+                            <p>Survey hazardous, steep, or inaccessible terrain (like active mines or unstable slopes) without putting personnel at risk.</p>
+                        </div>
+                    </div>
+                    <div class="sm-comp-item">
+                        <div class="sm-comp-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                        <div>
+                            <h4>Millions of Data Points</h4>
+                            <p>Instead of a few hundred points collected manually, drones capture millions of points, providing a continuous, high-density reality capture.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="w-testimonial">
-                <div class="w-testimonial-quote">"</div>
-                <div class="w-testimonial-stars">★★★★★</div>
-                <p class="w-testimonial-text">The Baraat footage is something else. They had the drone keeping pace right next to my horse, weaving through the crowd. Every single person who watched the video was amazed. Chennai FPV Drones are in a league of their own.</p>
-                <div class="w-testimonial-author">
-                    <div class="w-testimonial-avatar">A</div>
-                    <div>
-                        <span class="w-testimonial-name">Arjun Mehta</span>
-                        <span class="w-testimonial-event">Destination Wedding — Mahabalipuram, 2024</span>
-                    </div>
-                </div>
-            </div>
-            <div class="w-testimonial">
-                <div class="w-testimonial-quote">"</div>
-                <div class="w-testimonial-stars">★★★★★</div>
-                <p class="w-testimonial-text">I was nervous about having a drone inside the venue but they used a tiny, safe cinewhoop that nobody even noticed. The footage from our reception dance is the most beautiful video I have ever seen of us. Worth every rupee.</p>
-                <div class="w-testimonial-author">
-                    <div class="w-testimonial-avatar">S</div>
-                    <div>
-                        <span class="w-testimonial-name">Suresh & Divya</span>
-                        <span class="w-testimonial-event">Indoor Reception — Chennai, 2025</span>
-                    </div>
+            <div class="sm-comp-image">
+                <img src="assets/imgs/pages/home-13/sec-1-hero-5.jpeg" alt="Drone Land Surveying Map">
+                <div class="sm-comp-overlay">
+                    <span>Precision Reality Capture</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ======================== FAQ ======================== -->
-<section class="w-section w-section-dark2" id="faq">
+<!-- ========== PROCESS ========== -->
+<section class="sm-section sm-section-dark2">
     <div class="container">
-        <div class="w-section-header">
-            <div class="w-label">FAQs</div>
-            <h2 class="w-title">Your Questions, Answered</h2>
-            <p class="w-subtitle">Everything you need to know before booking our FPV wedding cinematography service.</p>
+        <div class="sm-section-header">
+            <div class="sm-label">Methodology</div>
+            <h2 class="sm-title">Our End-to-End Workflow</h2>
+            <p class="sm-subtitle">We follow a strict, standardized operational procedure to guarantee survey-grade absolute accuracy and reliable deliverables.</p>
         </div>
-        <div class="w-faq-list">
-            <div class="w-faq-item">
-                <button class="w-faq-q" onclick="toggleFaq(this)">
-                    Is it safe to fly FPV drones indoors near wedding guests?
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                </button>
-                <div class="w-faq-a">We use specialized Cinewhoop FPV drones with fully enclosed propeller guards that prevent any contact with people or surfaces. These drones are specifically engineered for indoor proximity flying and are the industry standard for indoor cinematography worldwide. Our pilots are certified and trained to operate in crowded environments safely.</div>
+        
+        <div class="sm-process-wrap">
+            <div class="sm-process-step">
+                <div class="sm-process-num">01</div>
+                <h4>Project Planning</h4>
+                <p>Airspace checks, parameter definition, and automated flight path generation based on required GSD.</p>
             </div>
-            <div class="w-faq-item">
-                <button class="w-faq-q" onclick="toggleFaq(this)">
-                    Do I need any special permissions for FPV wedding filming?
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                </button>
-                <div class="w-faq-a">We handle all necessary regulatory paperwork on your behalf. Our pilots hold valid DGCA Remote Pilot Certificates. For outdoor flying, we assess airspace classifications. For indoor flying, no DGCA permissions are required. We will coordinate with your venue directly to secure all necessary approvals well before your wedding day.</div>
+            <div class="sm-process-step">
+                <div class="sm-process-num">02</div>
+                <h4>GCP Placement</h4>
+                <p>Laying and recording Ground Control Points using DGPS/RTK rovers for absolute spatial accuracy.</p>
             </div>
-            <div class="w-faq-item">
-                <button class="w-faq-q" onclick="toggleFaq(this)">
-                    How far in advance should I book?
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                </button>
-                <div class="w-faq-a">We strongly recommend booking at least 2–3 months in advance, especially for peak wedding season (November to February). Popular dates fill up very quickly. A 50% advance payment secures your date. We do sometimes accommodate last-minute bookings based on availability, so feel free to reach out.</div>
+            <div class="sm-process-step">
+                <div class="sm-process-num">03</div>
+                <h4>Data Acquisition</h4>
+                <p>Autonomous drone flights capturing high-overlap nadir/oblique imagery across the site.</p>
             </div>
-            <div class="w-faq-item">
-                <button class="w-faq-q" onclick="toggleFaq(this)">
-                    How long does it take to receive the final video?
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                </button>
-                <div class="w-faq-a">Standard delivery is 3–5 weeks after your event. This includes footage review, stabilization, color grading, music licensing, and final export. If you need a social media teaser delivered faster (within 1 week), we can prioritize that at no extra cost for Premium and Elite packages.</div>
+            <div class="sm-process-step">
+                <div class="sm-process-num">04</div>
+                <h4>Photogrammetry</h4>
+                <p>Processing thousands of images into cohesive orthomosaics and 3D models using advanced software.</p>
             </div>
-            <div class="w-faq-item">
-                <button class="w-faq-q" onclick="toggleFaq(this)">
-                    Can FPV footage be combined with traditional wedding videography?
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                </button>
-                <div class="w-faq-a">Absolutely! In fact, the best wedding films combine traditional ground-level coverage with our dynamic FPV shots. We work seamlessly alongside your existing wedding videographer and photographer. We can also merge our footage with theirs during post-production into one cohesive, epic wedding film upon request.</div>
-            </div>
-            <div class="w-faq-item">
-                <button class="w-faq-q" onclick="toggleFaq(this)">
-                    What happens if weather is bad on our wedding day?
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                </button>
-                <div class="w-faq-a">All our packages include indoor Cinewhoop coverage as standard, so rain does not cancel your FPV shots—we simply move operations indoors. For outdoor filming specifically, if weather prevents safe outdoor flying, we will document the situation clearly and provide a proportional credit or re-shoot at your next major celebration (e.g., anniversary, reception).</div>
+            <div class="sm-process-step">
+                <div class="sm-process-num">05</div>
+                <h4>Quality & Delivery</h4>
+                <p>Accuracy verification against checkpoints and delivery of CAD/GIS ready file formats.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ======================== FINAL CTA ======================== -->
-<section class="w-section w-section-dark" style="padding-bottom: 0;">
+<!-- ========== INDUSTRIES ========== -->
+<section class="sm-section sm-section-dark">
     <div class="container">
-        <div class="w-final-cta">
-            <div class="w-final-cta-title">Ready to Capture Your Story?</div>
-            <p class="w-final-cta-desc">Dates fill up fast. Reach out today and let us tell the most beautiful story you will ever live—from the sky.</p>
-            <div class="w-hero-actions">
-                <a href="contact-3.html" class="w-btn-primary">
-                    Book a Free Consultation
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-                </a>
-                <a href="tel:+919361738903" class="w-btn-outline">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    +91 93617 38903
-                </a>
+        <div class="sm-section-header">
+            <div class="sm-label">Applications</div>
+            <h2 class="sm-title">Industries We Serve</h2>
+        </div>
+        <div class="sm-industry-grid">
+            <div class="sm-ind-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/><path d="M9 9v.01"/><path d="M9 13v.01"/><path d="M9 17v.01"/></svg>
+                <h4>Real Estate & Urban Planning</h4>
+                <p>Plot layout designing, boundary marking, and site feasibility studies.</p>
             </div>
+            <div class="sm-ind-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="14.5 2 22 2 22 9.5 14.5 2"/><polyline points="22 17 22 22 17 22"/><polyline points="2 17 2 22 7 22"/><polyline points="2 7 2 2 7 2"/><line x1="22" y1="14.5" x2="14.5" y2="22"/><line x1="2" y1="14.5" x2="9.5" y2="22"/><line x1="2" y1="9.5" x2="9.5" y2="2"/><line x1="22" y1="9.5" x2="14.5" y2="2"/></svg>
+                <h4>Mining & Aggregates</h4>
+                <p>Volumetric calculations for stockpiles, pit mapping, and safety inspections.</p>
+            </div>
+            <div class="sm-ind-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                <h4>Infrastructure & Construction</h4>
+                <p>Highway alignments, progress monitoring, and as-built surveys.</p>
+            </div>
+            <div class="sm-ind-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                <h4>Agriculture & Forestry</h4>
+                <p>Topographical data for irrigation planning and large estate boundary mapping.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== PRICING ========== -->
+<section class="sm-section sm-section-dark2" id="pricing">
+    <div class="container">
+        <div class="sm-section-header">
+            <div class="sm-label">Pricing</div>
+            <h2 class="sm-title">Transparent Mapping Packages</h2>
+            <p class="sm-subtitle">Professional deliverables scaled to your project size. Rates are indicative; final quotes depend on location, terrain complexity, and GCP requirements.</p>
+        </div>
+        
+        <div class="sm-pricing-grid">
+            <!-- Tier 1 -->
+            <div class="sm-price-card">
+                <div class="sm-price-name">Basic 2D Mapping</div>
+                <div class="sm-price-amount">&#8377;14,999 <span>/ up to 50 acres</span></div>
+                <p class="sm-price-desc">Ideal for real estate plots, boundary marking, and visual site context.</p>
+                <ul class="sm-price-features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> High-Res Orthomosaic Map</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Relative GPS Accuracy</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> GeoTIFF / PDF Delivery</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Distance & Area Measurements</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 48-Hour Turnaround</li>
+                </ul>
+                <a href="contact-3.html" class="sm-price-cta outline">Request Quote</a>
+            </div>
+            
+            <!-- Tier 2 -->
+            <div class="sm-price-card featured">
+                <div class="sm-price-badge">Survey Grade</div>
+                <div class="sm-price-name">3D Topo & Contours</div>
+                <div class="sm-price-amount">&#8377;29,999 <span>/ up to 100 acres</span></div>
+                <p class="sm-price-desc">Comprehensive dataset for architects, engineers, and construction planning.</p>
+                <ul class="sm-price-features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Everything in Basic 2D</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> RTK/PPK Absolute Accuracy (&lt;5cm)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Digital Elevation Model (DSM/DTM)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Contour Lines (AutoCAD DXF)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> 3D Point Cloud (.LAS)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> GCP Laying & Measurement</li>
+                </ul>
+                <a href="contact-3.html" class="sm-price-cta primary">Book This Package</a>
+            </div>
+            
+            <!-- Tier 3 -->
+            <div class="sm-price-card">
+                <div class="sm-price-name">Volumetrics & Mining</div>
+                <div class="sm-price-amount">Custom <span>Pricing</span></div>
+                <p class="sm-price-desc">Specialized analysis for quarries, mining, and large-scale infrastructure.</p>
+                <ul class="sm-price-features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Large Scale Mapping (500+ Acres)</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Stockpile Volumetric Calculations</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Cut and Fill Analysis</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Recurring Monthly Monitoring</li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Detailed PDF Survey Reports</li>
+                </ul>
+                <a href="contact-3.html" class="sm-price-cta outline">Contact For Quote</a>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <p style="color: var(--sm-muted); font-size: 0.9rem;">* For projects requiring DGPS/Rover based Ground Control Points (GCPs) established by our surveyors, additional charges may apply based on site terrain.</p>
         </div>
     </div>
 </section>
 
 </div>
-
-<script>
-function toggleFaq(btn) {
-    const answer = btn.nextElementSibling;
-    const isOpen = btn.classList.contains('open');
-    // Close all
-    document.querySelectorAll('.w-faq-q').forEach(b => b.classList.remove('open'));
-    document.querySelectorAll('.w-faq-a').forEach(a => a.classList.remove('open'));
-    // Toggle clicked
-    if (!isOpen) {
-        btn.classList.add('open');
-        answer.classList.add('open');
-    }
-}
-</script>
             </main>
             <!-- prettier-ignore -->
             <!-- Footer 13 — Architecture (Figma: Footer 13, node 4199:3734) -->
